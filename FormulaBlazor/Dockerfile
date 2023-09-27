@@ -5,8 +5,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["FormulaBlazor.csproj", "FormulaBlazor/"]
-RUN dotnet restore "FormulaBlazor.csproj"
+COPY ["FormulaBlazor/FormulaBlazor.csproj", "FormulaBlazor/"]
+RUN dotnet restore "FormulaBlazor/FormulaBlazor.csproj"
 COPY . .
 WORKDIR "/src/FormulaBlazor"
 RUN dotnet build "FormulaBlazor.csproj" -c Release -o /app/build
